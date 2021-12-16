@@ -10,9 +10,10 @@ interface IUserCreateService {
 
 class UserCreateService {
   async execute({name,email,password,permission} : IUserCreateService) {
-    const userExists = prisma.user.findFirst({
+    const userExists = await prisma.user.findFirst({
       where:{
-        email
+        email,
+        isActive: true
       }
     });
     if(userExists) {
