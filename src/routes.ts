@@ -4,6 +4,7 @@ import { UserCreateController } from './controllers/UserCreateController';
 import { UserDestroyController } from './controllers/UserDestroyController';
 import { UserListAllController } from './controllers/UserListAllController';
 import { UserListOneController } from './controllers/UserListOneController';
+import { UserUpdateController } from './controllers/UserUpdateController';
 import { IsAuthenticated } from './middlewares/IsAuthenticated';
 import { IsAuthorized } from './middlewares/isAuthorized';
 
@@ -11,10 +12,9 @@ const routes = Router();
 /** User routes */
 routes.post('/register' , new UserCreateController().handle);
 routes.post('/login', new AuthenticateController().handle)
-routes.get('/listOne/:id', IsAuthenticated, new UserListOneController().handle)
-routes.get('/listAll', IsAuthenticated, new UserListAllController().handle)
-routes.delete('/destroy/:id', IsAuthenticated, IsAuthorized, new UserDestroyController().handle);
-
-
+routes.get('/users/:id', IsAuthenticated, new UserListOneController().handle)
+routes.get('/users', IsAuthenticated, new UserListAllController().handle)
+routes.put('/users/:id', IsAuthenticated, new UserUpdateController().handle)
+routes.delete('/users/:id', IsAuthenticated, IsAuthorized, new UserDestroyController().handle);
 
 export { routes }
