@@ -1,10 +1,17 @@
 import { prisma } from "../database/prisma"
 class UserListAllService {
-  async execute() {
+  async execute(id: string) {
     return await prisma.user.findMany({
       where: {
-        isActive: true
-      }
+        isActive: true,
+        AND: {
+          id: {
+            not: id
+          }
+        }
+        
+      },
+      
     });
   }
 }
