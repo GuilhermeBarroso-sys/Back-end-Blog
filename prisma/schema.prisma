@@ -12,7 +12,7 @@ model User {
   name       String   @db.VarChar(255)
   email      String   @db.VarChar(255)
   password   String   @db.VarChar(255)
-  permission Int      @db.SmallInt
+  permission Int      @db.SmallInt @default(9)
   isActive   Boolean  @default(true)
   isBanned   Boolean  @default(false)
   createdAt  DateTime @default(now())

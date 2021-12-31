@@ -5,11 +5,13 @@ interface IUserCreateService {
   name: string,
   email: string,
   password: string,
-  permission: number,
 }
 
 class UserCreateService {
-  async execute({name,email,password,permission} : IUserCreateService) {
+  async execute({name,email,password} : IUserCreateService) {
+    if(!name|| !email|| !password) {
+      throw new Error("400");
+    }
     const userExists = await prisma.user.findFirst({
       where:{
         email,
@@ -17,7 +19,7 @@ class UserCreateService {
       }
     });
     if(userExists) {
-      throw new Error("User Already Exists!");
+      throw new Error("409");
     }
     password = await bcrypt.hash(password, RandomNumber.generate(0,10))
     const user = await prisma.user.create({
@@ -25,7 +27,6 @@ class UserCreateService {
         name,
         email,
         password,
-        permission
       }
     })
     return user;
