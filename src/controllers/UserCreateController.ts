@@ -12,7 +12,6 @@ class UserCreateController {
       if(message === "400") {
         return response.status(400).json(message);
       }
-      console.log(message);
       return response.status(409).json(message);
     }
   }
