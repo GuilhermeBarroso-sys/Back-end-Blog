@@ -3,7 +3,6 @@
 Backend do projeto que se encontra aqui: https://github.com/GuilhermeBarroso-sys/blog-front 
 
 # Principais Tecnologias utilizadas
-## Front end
 - Javascript
 - Typescript
 - Mysql
