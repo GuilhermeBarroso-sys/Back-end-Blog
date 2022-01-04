@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-Backend do projeto que se encontra aqui: https://github.com/GuilhermeBarroso-sys/blog-front 
+
 
 # Principais Tecnologias utilizadas
 - Javascript
@@ -46,7 +46,7 @@ yarn prisma migrate dev
 # Agora que o backend está configurado, basta digitar:
 yarn dev
 ```
-
+Front-end do projeto que se encontra aqui: https://github.com/GuilhermeBarroso-sys/Front-End-Blog
 # Autor
 
 Guilherme Barroso de Oliveira
